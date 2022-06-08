@@ -2,6 +2,8 @@ import React, {useState} from "react";
 
 import axios from "axios";
 
+import { useNavigate } from "react-router-dom";
+
 export const CreateUser = () => {
 
     const token = sessionStorage.getItem('Token');
@@ -9,6 +11,8 @@ export const CreateUser = () => {
     const headers = {headers: 
         {'Authorization': `Bearer  ${token}`}
     }
+
+    const navigate = useNavigate();
 
     const[name,setName] = useState('');
     const[email,setEmail] = useState('');
@@ -28,7 +32,8 @@ export const CreateUser = () => {
 
         try{
             const response = await axios.post(`https://examen.avirato.com/client/post`, cliente, headers);
-            alert(`usuario ${response.data.nombre} creado`);
+            alert(`usuario creado`);
+            navigate('/client/getUsers');
         }catch(error){
             console.log(error)
         }
@@ -36,7 +41,7 @@ export const CreateUser = () => {
 
     return(
         <div>
-            <h1>Crea Usuario</h1>
+            <h1>Crear Usuario</h1>
 
             <form onSubmit={handleSubmit}>
 
