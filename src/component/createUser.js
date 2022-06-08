@@ -56,12 +56,12 @@ export const CreateUser = () => {
                 </label>
 
                 <label>
-                    <p>telefono</p>
+                    <p>Telefono</p>
                     <input type='number' value={telefono} onChange={(e) => setTelefono(e.target.value)} required/>
                 </label>
 
                 <label>
-                    <p>fechaNacimiento</p>
+                    <p>Fecha de Nacimiento</p>
                     <input  type='text' value={fechaNacimiento} onChange={(e) => setFechaNacimiento(e.target.value)} required/>
                 </label>
                 
